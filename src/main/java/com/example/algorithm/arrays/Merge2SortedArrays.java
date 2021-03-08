@@ -2,15 +2,6 @@ package com.example.algorithm.arrays;
 
 public class Merge2SortedArrays {
 
-    public static void main(final String[] args) {
-        final Merge2SortedArrays m = new Merge2SortedArrays();
-        final int[] arr1 = new int[]{10, 12};
-        final int[] arr2 = new int[]{1, 2, 6, 8, 9};
-        //m.merge2SortedArraysWithInsertionSort(arr1, arr2);
-        m.merge2SortedArraysWithGapAlgorithm(arr1, arr2);
-        System.out.println(arr1);
-    }
-
     public void merge2SortedArraysWithGapAlgorithm(final int[] arr1, final int[] arr2) {
         final int m = arr1.length;
         final int n = arr2.length;
@@ -70,7 +61,7 @@ public class Merge2SortedArrays {
         final int n = arr2.length;
 
         // Iterate through 2nd array to find proper place for each elements
-        for (int i = n - 1; i >= 0; i--) {
+        for (int i = n - 1; i >= 0 && m > 0; i--) {
             int j = m - 2;
             final int last = arr1[m - 1];
             for (; j >= 0 && arr1[j] > arr2[i]; j--) {
