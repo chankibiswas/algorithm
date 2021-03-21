@@ -2,6 +2,19 @@ package com.example.algorithm.arrays;
 
 public class Merge2SortedArrays {
 
+    /*
+        Time complexity: O(nlogn)
+        Space complexity: O(1)
+        -------------------------
+        In this algorithm, we start by calculating the next 'gap'.
+        You can think of gap as the distance between two elements which we’ll be comparing.
+        The first Gap would be —
+        (size of the first array + size of the second array)/2 + remainder
+        Second gap value -- (int)(First gap)/2 + remainder
+        and so on until we get gap as 1.
+        -------------------------
+        We traverse and compare the elements with 'gap' and swap if necessary
+     */
     public void merge2SortedArraysWithGapAlgorithm(final int[] arr1, final int[] arr2) {
         final int m = arr1.length;
         final int n = arr2.length;
