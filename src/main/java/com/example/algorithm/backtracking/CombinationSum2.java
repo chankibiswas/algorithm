@@ -24,6 +24,9 @@ public class CombinationSum2 {
             return;
         }
         for (int i = index; i < candidates.length; i++) {
+            if (candidates[i] > target) {
+                return;
+            }
             if (i == index || candidates[i] != candidates[i - 1]) {
                 oneCombination.add(candidates[i]);
                 combinationSum2(candidates, i + 1, target - candidates[i], oneCombination, result);
