@@ -1,6 +1,6 @@
 package com.example.algorithm.string;
 
-public class LongestPrefix {
+public class LongestCommonPrefix {
 
     /*
     Get the longest common prefix in array of strings
