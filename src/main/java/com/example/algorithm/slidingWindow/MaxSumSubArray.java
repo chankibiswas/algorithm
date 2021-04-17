@@ -2,6 +2,9 @@ package com.example.algorithm.slidingWindow;
 
 public class MaxSumSubArray {
 
+    /*
+    Fixed size window problem
+     */
     public int getMaxSumSubArrayWithSizeK(final int[] a, final int k) {
         int maxSum = 0;
         int sum = 0;
