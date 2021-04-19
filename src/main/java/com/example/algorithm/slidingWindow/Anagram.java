@@ -22,26 +22,26 @@ public class Anagram {
         }
         final Set<Object> keySet = m.keySet();
 
-        for (int i = 0, j = 0; i < textArr.length; i++) {
-            if (keySet.contains(textArr[i])) {
-                final int temp = m.get(textArr[i]);
-                m.put(textArr[i], temp - 1);
+        for (int j = 0, i = 0; j < textArr.length; j++) {
+            if (keySet.contains(textArr[j])) {
+                final int temp = m.get(textArr[j]);
+                m.put(textArr[j], temp - 1);
                 if (temp - 1 == 0) {
                     countCharacter--;
                 }
             }
-            if (i - j + 1 >= wordArr.length) {
+            if (j - i + 1 >= wordArr.length) {
                 if (countCharacter == 0) {
                     anagramCount++;
                 }
-                if (keySet.contains(textArr[j])) {
-                    final int temp = m.get(textArr[j]);
-                    m.put(textArr[j], temp + 1);
+                if (keySet.contains(textArr[i])) {
+                    final int temp = m.get(textArr[i]);
+                    m.put(textArr[i], temp + 1);
                     if (temp == 0) {
                         countCharacter++;
                     }
                 }
-                j++;
+                i++;
             }
         }
         return anagramCount;
