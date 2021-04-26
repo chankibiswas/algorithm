@@ -16,4 +16,19 @@ public class Permutation {
         permutationWithSpacesInBetween(input.substring(1), output + input.charAt(0) + " ");
         permutationWithSpacesInBetween(input.substring(1), output + input.charAt(0));
     }
+
+    /*
+    Permutation in String with case change in characters.
+    Input - abc
+    Output - ABC, ABc, AbC, Abc, aBC, aBc, abC, abc
+     */
+    private void permutationWithCaseChange(final String input, final String output) {
+        if (input.length() == 0) {
+            System.out.println(output + input);
+            return;
+        }
+        final String ip = "" + input.charAt(0);
+        permutationWithCaseChange(input.substring(1), output + ip.toUpperCase());
+        permutationWithCaseChange(input.substring(1), output + ip.toLowerCase());
+    }
 }
