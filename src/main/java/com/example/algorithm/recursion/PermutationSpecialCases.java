@@ -1,6 +1,6 @@
 package com.example.algorithm.recursion;
 
-public class Permutation {
+public class PermutationSpecialCases {
 
     /*
     With any String as input, all permutations are printed with space in between.
@@ -18,7 +18,7 @@ public class Permutation {
     }
 
     /*
-    Permutation in String with case change in characters.
+    PermutationSpecialCases in String with case change in characters.
     Input - abc
     Output - ABC, ABc, AbC, Abc, aBC, aBc, abC, abc
      */
@@ -33,7 +33,7 @@ public class Permutation {
     }
 
     /*
-    Permutation in String with case change in characters. It also allows digits and special characters
+    PermutationSpecialCases in String with case change in characters. It also allows digits and special characters
     Input - a1B
     Output - A1B, A1b, a1B, a1b
     *
