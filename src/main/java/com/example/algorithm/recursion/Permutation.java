@@ -8,7 +8,7 @@ public class Permutation {
     Input - ABC
     Output - ABC, A BC, AB C, A B C
      */
-    private void permutationWithSpacesInBetween(final String input, final String output) {
+    public void permutationWithSpacesInBetween(final String input, final String output) {
         if (input.length() == 1) {
             System.out.println(output + input);
             return;
@@ -22,7 +22,7 @@ public class Permutation {
     Input - abc
     Output - ABC, ABc, AbC, Abc, aBC, aBc, abC, abc
      */
-    private void permutationWithCaseChange(final String input, final String output) {
+    public void permutationWithCaseChange(final String input, final String output) {
         if (input.length() == 0) {
             System.out.println(output + input);
             return;
@@ -30,5 +30,27 @@ public class Permutation {
         final String ip = "" + input.charAt(0);
         permutationWithCaseChange(input.substring(1), output + ip.toUpperCase());
         permutationWithCaseChange(input.substring(1), output + ip.toLowerCase());
+    }
+
+    /*
+    Permutation in String with case change in characters. It also allows digits and special characters
+    Input - a1B
+    Output - A1B, A1b, a1B, a1b
+    *
+    Input - A&b
+    Output - A&B, A&b, a&B, a&b
+     */
+    public void permutationInAnyInputWithCaseChange(final String input, final String output) {
+        if (input.length() == 0) {
+            System.out.println(output + input);
+            return;
+        }
+        final String ip = "" + input.charAt(0);
+        if (ip.toLowerCase() == ip.toUpperCase()) {
+            permutationInAnyInputWithCaseChange(input.substring(1), output + ip);
+        } else {
+            permutationInAnyInputWithCaseChange(input.substring(1), output + ip.toUpperCase());
+            permutationInAnyInputWithCaseChange(input.substring(1), output + ip.toLowerCase());
+        }
     }
 }
