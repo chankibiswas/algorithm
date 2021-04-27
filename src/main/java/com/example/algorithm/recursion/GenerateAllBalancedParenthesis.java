@@ -2,6 +2,11 @@ package com.example.algorithm.recursion;
 
 public class GenerateAllBalancedParenthesis {
 
+    /*
+    Generates all balanced parenthesis where number of open and closed brackets are same.
+    Open and close brackets should be properly paired.
+    No dangling open bracket should be present
+     */
     public void generateAllBalancedParenthesis(final int n) {
         final int open = n;
         final int closed = n;
