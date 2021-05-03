@@ -32,4 +32,27 @@ public class FindMissingNumber {
         nums[j] = nums[i] - nums[j];
         nums[i] = nums[i] - nums[j];
     }
+
+    /*
+    Given array is of positive integers sorted in a strictly increasing order
+    k is a positive integer
+    Find the kth positive integer that is missing from this array
+     */
+    public int findKthPositive(final int[] arr, final int k) {
+        int i = 1;
+        int j = 0;
+        int count = 0;
+        while (j <= arr.length) {
+            if (j == arr.length || arr[j] != i) {
+                count++;
+                if (count == k) {
+                    return i;
+                }
+            } else {
+                j++;
+            }
+            i++;
+        }
+        return arr.length + k;
+    }
 }
