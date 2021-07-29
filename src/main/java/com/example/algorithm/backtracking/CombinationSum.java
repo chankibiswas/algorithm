@@ -16,20 +16,20 @@ public class CombinationSum {
     }
 
     private void combinationSum(final int[] candidates, final int index, final int target,
-                                final List<Integer> oneCombination, final Set<List<Integer>> result) {
+                                final List<Integer> combinationList, final Set<List<Integer>> result) {
         if (target < 0) {
             return;
         } else if (target == 0) {
-            result.add(new ArrayList<>(oneCombination));
+            result.add(new ArrayList<>(combinationList));
             return;
         }
         for (int i = index; i < candidates.length; i++) {
             if (candidates[i] > target) {
                 return;
             }
-            oneCombination.add(candidates[i]);
-            combinationSum(candidates, i, target - candidates[i], oneCombination, result);
-            oneCombination.remove(oneCombination.size() - 1);
+            combinationList.add(candidates[i]);
+            combinationSum(candidates, i, target - candidates[i], combinationList, result);
+            combinationList.remove(combinationList.size() - 1);
         }
     }
 }
