@@ -1,7 +1,5 @@
 package com.example.algorithm.arrays;
 
-import java.util.Arrays;
-
 public class NextPermutation {
 
     /*
@@ -18,16 +16,15 @@ public class NextPermutation {
         if (nums.length == 1) {
             return;
         }
-        int j;
-        for (int i = nums.length - 1; i > 0; i--) {
-            if (nums[i] > nums[i - 1]) {
-                final int nextHighestNumberIndex = findNextHighestNumberIndex(nums, i - 1);
-                swap(nums, i - 1, nextHighestNumberIndex);
-                reverseArray(nums, i, nums.length - 1);
-                return;
-            }
+        int i = nums.length - 1;
+        while (i > 0 && nums[i] <= nums[i - 1]) {
+            i--;
         }
-        Arrays.sort(nums);
+        if (i > 0) {
+            final int nextHighestNumberIndex = findNextHighestNumberIndex(nums, i - 1);
+            swap(nums, i - 1, nextHighestNumberIndex);
+        }
+        reverseArray(nums, i, nums.length - 1);
     }
 
     private void reverseArray(final int[] nums, final int start, final int end) {
