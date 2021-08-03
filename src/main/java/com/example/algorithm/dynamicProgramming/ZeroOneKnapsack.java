@@ -2,6 +2,13 @@ package com.example.algorithm.dynamicProgramming;
 
 public class ZeroOneKnapsack {
 
+    public static void main(final String[] s) {
+        final ZeroOneKnapsack z = new ZeroOneKnapsack();
+        final int[] value = {60, 100, 120};
+        final int[] weight = {10, 20, 30};
+        System.out.println(z.knapsackWithTopDown(value, weight, 3, 50));
+    }
+
     public int knapsackWithRecursion(final int[] value, final int[] weight, final int index, final int capacity) {
         if (capacity == 0 || index == 0) {
             return 0;
@@ -55,6 +62,6 @@ public class ZeroOneKnapsack {
             }
         }
         return dp[index][capacity];
-    }
 
+    }
 }
