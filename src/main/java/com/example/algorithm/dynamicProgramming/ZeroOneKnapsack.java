@@ -1,5 +1,13 @@
 package com.example.algorithm.dynamicProgramming;
 
+/*
+Given weights and values of n items, put these items in a knapsack of 'capacity' to get the maximum total value in the
+knapsack.
+In other words, given two integer arrays value[0..n-1] and weight[0..n-1] which represent values and weights
+associated with n items respectively. Also given an integer 'capacity' which represents knapsack capacity, find out the
+maximum value subset of value[] such that sum of the weights of this subset is smaller than or equal to 'capacity'.
+You cannot break an item, either pick the complete item or don’t pick it (0-1 property).
+ */
 public class ZeroOneKnapsack {
 
     public static void main(final String[] s) {
