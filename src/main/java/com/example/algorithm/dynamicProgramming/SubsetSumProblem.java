@@ -10,7 +10,7 @@ public class SubsetSumProblem {
         final SubsetSumProblem p = new SubsetSumProblem();
         final int[] items = {2, 3, 5, 7, 8, 10};
         System.out.println(p.subsetSumProblemWithRecursion(items, items.length, 11));
-        System.out.println(p.subsetSumProblemWithTopDown(items, items.length, 6));
+        System.out.println(p.subsetSumProblemWithTopDown(items, 6));
     }
 
     public boolean subsetSumProblemWithRecursion(final int[] items, final int index, final int sum) {
@@ -28,11 +28,11 @@ public class SubsetSumProblem {
         }
     }
 
-    public boolean subsetSumProblemWithTopDown(final int[] items, final int index, final int sum) {
+    public boolean subsetSumProblemWithTopDown(final int[] items, final int sum) {
         if (sum == 0) {
             return true;
         }
-        if (index == 0) {
+        if (items.length == 0) {
             return false;
         }
 
@@ -53,6 +53,6 @@ public class SubsetSumProblem {
                 }
             }
         }
-        return dp[index][sum];
+        return dp[items.length][sum];
     }
 }
