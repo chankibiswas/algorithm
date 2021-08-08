@@ -1,4 +1,4 @@
-package com.example.algorithm.dynamicProgramming;
+package com.example.algorithm.dynamicProgramming.zeroOneKnapsack;
 
 /*
 Given weights and values of n items, put these items in a knapsack of 'capacity' to get the maximum total value in the

@@ -1,4 +1,4 @@
-package com.example.algorithm.dynamicProgramming;
+package com.example.algorithm.dynamicProgramming.zeroOneKnapsack;
 
 /*
 Count of subsets sum with a Given sum
