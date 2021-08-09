@@ -1,4 +1,4 @@
-package com.example.algorithm.dynamicProgramming;
+package com.example.algorithm.dynamicProgramming.leastCommonSequence;
 
 /*
 Longest Common Sub-sequence Problem
