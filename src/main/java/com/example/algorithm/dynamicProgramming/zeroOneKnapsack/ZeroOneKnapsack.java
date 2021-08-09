@@ -30,6 +30,9 @@ public class ZeroOneKnapsack {
         }
     }
 
+    /*
+    Initially the 2-D matrix 'dp' is fully initialized with -1
+     */
     public int knapsackWithMemoization(final int[] value, final int[] weight, final int index, final int capacity,
                                        final int[][] dp) {
         if (capacity == 0 || index == 0) {
