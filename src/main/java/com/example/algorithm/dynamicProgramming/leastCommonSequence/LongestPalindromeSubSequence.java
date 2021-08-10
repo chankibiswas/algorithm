@@ -12,7 +12,9 @@ public class LongestPalindromeSubSequence {
 
     public static void main(final String[] s) {
         final String s1 = "agbcba";
-        System.out.println(new LongestPalindromeSubSequence().lengthOfLongestPalindromeSubSequence(s1));
+        final LongestPalindromeSubSequence longestPalindromeSubSequence = new LongestPalindromeSubSequence();
+        System.out.println(longestPalindromeSubSequence.lengthOfLongestPalindromeSubSequence(s1));
+        longestPalindromeSubSequence.getMinimumDeletionForLongestPalindromeSubSequence(s1);
     }
 
     public int lengthOfLongestPalindromeSubSequence(final String s1) {
@@ -22,5 +24,10 @@ public class LongestPalindromeSubSequence {
         final int lcs =
             longestCommonSubSequence.longestCommonSubSequenceLengthByTopDown(s1, new StringBuilder(s1).reverse().toString());
         return lcs;
+    }
+
+    public void getMinimumDeletionForLongestPalindromeSubSequence(final String s1) {
+        final int longestPalindromeLength = lengthOfLongestPalindromeSubSequence(s1);
+        System.out.println("Deletion = " + (s1.length() - longestPalindromeLength));
     }
 }
