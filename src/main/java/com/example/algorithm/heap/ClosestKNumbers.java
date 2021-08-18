@@ -26,23 +26,8 @@ public class ClosestKNumbers {
             }
         }
         for (int i = 0; i < k && !pq.isEmpty(); i++) {
-            System.out.println(arr[pq.poll().key]);
+            System.out.println(arr[pq.poll().getKey()]);
         }
     }
 
-    private static class Pair implements Comparable<Pair> {
-
-        private final int key;
-        private final int value;
-
-        Pair(final int key, final int value) {
-            this.key = key;
-            this.value = value;
-        }
-
-        @Override
-        public int compareTo(final Pair pair) {
-            return value - pair.value;
-        }
-    }
 }
