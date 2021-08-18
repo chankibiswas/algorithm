@@ -18,7 +18,7 @@ public class ClosestKNumbers {
     }
 
     public void printKClosestNumbers(final int[] arr, final int x, final int k) {
-        final PriorityQueue<Pair> pq = new PriorityQueue<>(Comparator.reverseOrder());
+        final PriorityQueue<Pair<Integer>> pq = new PriorityQueue<>(Comparator.reverseOrder());
         for (int i = 0; i < arr.length; i++) {
             pq.add(new Pair(i, Math.abs(arr[i] - x)));
             if (pq.size() > k) {

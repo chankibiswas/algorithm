@@ -1,11 +1,11 @@
 package com.example.algorithm.heap;
 
-class Pair implements Comparable<Pair> {
+class Pair<T> implements Comparable<Pair> {
 
-    private final int key;
+    private final T key;
     private final int value;
 
-    Pair(final int key, final int value) {
+    Pair(final T key, final int value) {
         this.key = key;
         this.value = value;
     }
@@ -15,7 +15,11 @@ class Pair implements Comparable<Pair> {
         return value - pair.value;
     }
 
-    int getKey() {
+    T getKey() {
         return key;
+    }
+
+    int getValue() {
+        return value;
     }
 }
