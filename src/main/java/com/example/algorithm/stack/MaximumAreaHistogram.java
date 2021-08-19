@@ -19,7 +19,7 @@ public class MaximumAreaHistogram {
         System.out.println(max.getMaximumAreaOfHistogram(arr));
     }
 
-    private int getMaximumAreaOfHistogram(final int[] arr) {
+    public int getMaximumAreaOfHistogram(final int[] arr) {
         final int[] nearestSmallerToLeft = getNearestSmallerIndexToLeft(arr);
         final int[] nearestSmallerToRight = getNearestSmallerIndexToRight(arr);
 
