@@ -1,4 +1,4 @@
-package com.example.algorithm.stack;
+package com.example.algorithm.stack.nearest;
 
 import java.util.Stack;
 
