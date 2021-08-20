@@ -1,4 +1,4 @@
-package com.example.algorithm.stack;
+package com.example.algorithm.arrays;
 
 /*
 Given n non-negative integers representing an elevation map where the width of each bar is 1,
@@ -37,22 +37,22 @@ public class RainWaterTrapping {
         if (height.length == 0) {
             return 0;
         }
+        final int[] maxLeft = new int[height.length];
         final int[] maxRight = new int[height.length];
-        final int[] maxleft = new int[height.length];
 
-        maxRight[0] = height[0];
+        maxLeft[0] = height[0];
         for (int i = 1; i < height.length; i++) {
-            maxRight[i] = Math.max(maxRight[i - 1], height[i]);
+            maxLeft[i] = Math.max(maxLeft[i - 1], height[i]);
         }
 
-        maxleft[maxleft.length - 1] = height[height.length - 1];
+        maxRight[maxRight.length - 1] = height[height.length - 1];
         for (int i = height.length - 2; i >= 0; i--) {
-            maxleft[i] = Math.max(maxleft[i + 1], height[i]);
+            maxRight[i] = Math.max(maxRight[i + 1], height[i]);
         }
 
         int sum = 0;
         for (int i = 0; i < height.length; i++) {
-            sum = sum + Math.min(maxleft[i], maxRight[i]) - height[i];
+            sum = sum + Math.min(maxRight[i], maxLeft[i]) - height[i];
         }
         return sum;
     }
