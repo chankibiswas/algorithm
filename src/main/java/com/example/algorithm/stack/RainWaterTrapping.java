@@ -31,28 +31,28 @@ public class RainWaterTrapping {
 
     /*
     We need to find a max element to right and left.
-    Rain water will be sum of min(maxLeft, maxRight) - arr[i]
+    Rain water will be sum of min(maxLeft, maxRight) - height[i]
      */
-    private int getMaximumRainWater(final int[] arr) {
-        if (arr.length == 0) {
+    private int getMaximumRainWater(final int[] height) {
+        if (height.length == 0) {
             return 0;
         }
-        final int[] maxRight = new int[arr.length];
-        final int[] maxleft = new int[arr.length];
+        final int[] maxRight = new int[height.length];
+        final int[] maxleft = new int[height.length];
 
-        maxRight[0] = arr[0];
-        for (int i = 1; i < arr.length; i++) {
-            maxRight[i] = Math.max(maxRight[i - 1], arr[i]);
+        maxRight[0] = height[0];
+        for (int i = 1; i < height.length; i++) {
+            maxRight[i] = Math.max(maxRight[i - 1], height[i]);
         }
 
-        maxleft[maxleft.length - 1] = arr[arr.length - 1];
-        for (int i = arr.length - 2; i >= 0; i--) {
-            maxleft[i] = Math.max(maxleft[i + 1], arr[i]);
+        maxleft[maxleft.length - 1] = height[height.length - 1];
+        for (int i = height.length - 2; i >= 0; i--) {
+            maxleft[i] = Math.max(maxleft[i + 1], height[i]);
         }
 
         int sum = 0;
-        for (int i = 0; i < arr.length; i++) {
-            sum = sum + Math.min(maxleft[i], maxRight[i]) - arr[i];
+        for (int i = 0; i < height.length; i++) {
+            sum = sum + Math.min(maxleft[i], maxRight[i]) - height[i];
         }
         return sum;
     }
