@@ -1,5 +1,6 @@
-package com.example.algorithm.stack;
+package com.example.algorithm.stack.stock;
 
+import com.example.algorithm.stack.IndexValuePair;
 import java.util.Stack;
 
 /*
