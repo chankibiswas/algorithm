@@ -15,11 +15,53 @@ public class LongestPalindromeSubstring {
     private final Map<String, Boolean> dp = new HashMap<>();
 
     public static void main(final String[] st) {
-        final String s = "babad";
-        System.out.println(new LongestPalindromeSubstring().longestPalindrome(s));
+        final String s = "abcdefghgfdgab";
+        System.out.println(new LongestPalindromeSubstring().longestPalindrome4(s));
     }
 
-    private String longestPalindrome(final String s) {
+    /*
+    Best and easiest code.
+    Time complexity: O(n^2)
+    *
+    Here we are trying to expand from centre and in it, there are 2 cases.
+    1. Word is even numbered character
+    2. Word is odd numbered character
+     */
+    public String longestPalindrome4(final String s) {
+        if (s == null) {
+            return null;
+        }
+        int maxLength = 0;
+        int length1;
+        int length2;
+        int tempMax;
+        String longestPalindrome = "";
+        for (int i = 0; i < s.length(); i++) {
+            // For odd numbered palindrome string
+            length1 = expandFromMiddle(s, i, i);
+            // For even numbered palindrome string
+            length2 = expandFromMiddle(s, i, i + 1);
+            tempMax = Math.max(length1, length2);
+            if (maxLength < tempMax) {
+                maxLength = tempMax;
+                longestPalindrome = s.substring(i - (tempMax - 1) / 2, i + (tempMax / 2) + 1);
+            }
+        }
+        return longestPalindrome;
+    }
+
+    private int expandFromMiddle(final String s, int i, int j) {
+        if (i < 0 || j >= s.length()) {
+            return 0;
+        }
+        while (i >= 0 && j < s.length() && s.charAt(i) == s.charAt(j)) {
+            i--;
+            j++;
+        }
+        return j - i - 1;
+    }
+
+    public String longestPalindrome(final String s) {
         String result = "";
 
         for (int i = 0; i < s.length(); i++) {
@@ -57,7 +99,7 @@ public class LongestPalindromeSubstring {
         return result;
     }
 
-    private String longestPalindrome3(final String s) {
+    public String longestPalindrome3(final String s) {
         if (s.length() == 0) {
             return "";
         } else if (s.length() == 1) {
@@ -95,6 +137,10 @@ public class LongestPalindromeSubstring {
         return res;
     }
 
+    /*
+    Brute force approach
+    Time complexity - O(n^3)
+     */
     public String longestPalindrome2(final String s) {
         if (s.length() == 0) {
             return "";
