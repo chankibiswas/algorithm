@@ -1,14 +1,14 @@
 package com.example.algorithm.trie;
 
-class TrieNode {
+public class TrieNode {
 
-    boolean isWord;
+    public String word;
 
-    TrieNode[] children;
+    public TrieNode[] children;
 
-    TrieNode() {
+    public TrieNode() {
         children = new TrieNode[26];
-        isWord = false;
+        word = null;
     }
 
 }

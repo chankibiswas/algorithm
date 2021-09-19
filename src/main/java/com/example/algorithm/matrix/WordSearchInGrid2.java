@@ -1,7 +1,11 @@
 package com.example.algorithm.matrix;
 
+import com.example.algorithm.trie.Trie;
+import com.example.algorithm.trie.TrieNode;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /*
 Given an m x n board of characters and a list of strings words, return all words on the board.
@@ -16,6 +20,8 @@ Output: []
  */
 public class WordSearchInGrid2 {
 
+    private static final Set<String> result = new HashSet<>();
+
     public static void main(final String[] s) {
         /*final char[][] board = {{'o', 'a', 'a', 'n'}, {'e', 't', 'a', 'e'}, {'i', 'h', 'k', 'r'}, {'i', 'f', 'l', 'v'}};
         final String[] words = {"oath", "pea", "eat", "rain"};*/
@@ -27,48 +33,45 @@ public class WordSearchInGrid2 {
     }
 
     public List<String> findWords(final char[][] board, final String[] words) {
-        if (words.length == 0 || board.length == 0) {
+        if (board.length < 1 || words.length < 1) {
             return new ArrayList<>();
         }
-        final List<String> result = new ArrayList<>();
+        final Trie trie = new Trie();
         for (final String word : words) {
-            if (searchWord(board, result, word)) {
-                result.add(word);
-            }
+            trie.insert(word);
         }
-        return result;
-    }
-
-    private boolean searchWord(final char[][] board, final List<String> result, final String word) {
+        final TrieNode root = trie.getTrie();
         for (int i = 0; i < board.length; i++) {
-            for (int j = 0; j < board[i].length; j++) {
-                if (board[i][j] == word.charAt(0)) {
-                    if (searchWord(board, i, j, 0, word)) {
-                        return true;
-                    }
+            for (int j = 0; j < board[0].length; j++) {
+                if (root.children[board[i][j] - 'a'] != null) {
+                    dfs(board, i, j, root);
                 }
             }
         }
-        return false;
+        return new ArrayList<>(result);
     }
 
-    private boolean searchWord(final char[][] board, final int i, final int j, final int index, final String word) {
-        if (index == word.length()) {
-            return true;
+    private void dfs(final char[][] board, final int i, final int j, final TrieNode root) {
+        if (i < 0 || j < 0 || i >= board.length || j >= board[0].length) {
+            return;
         }
-        if (i < 0 || i >= board.length || j < 0 || j >= board[i].length) {
-            return false;
+        if (board[i][j] == '#') {
+            return;
         }
-        if (board[i][j] != word.charAt(index)) {
-            return false;
+        final char w = board[i][j];
+        board[i][j] = '#';
+        final TrieNode current = root.children[w - 'a'];
+        if (current != null) {
+            if (current.word != null) {
+                result.add(current.word);
+            }
+            dfs(board, i + 1, j, current);
+            dfs(board, i - 1, j, current);
+            dfs(board, i, j + 1, current);
+            dfs(board, i, j - 1, current);
         }
-        final char temp = board[i][j];
-        board[i][j] = ' ';
-        final boolean result = searchWord(board, i + 1, j, index + 1, word)
-                               || searchWord(board, i, j + 1, index + 1, word)
-                               || searchWord(board, i - 1, j, index + 1, word)
-                               || searchWord(board, i, j - 1, index + 1, word);
-        board[i][j] = temp;
-        return result;
+        board[i][j] = w;
+
     }
+
 }
