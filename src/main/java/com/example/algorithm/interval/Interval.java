@@ -1,4 +1,4 @@
-package com.example.algorithm.arrays.interval;
+package com.example.algorithm.interval;
 
 public class Interval {
 
