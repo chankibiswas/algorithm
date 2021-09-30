@@ -15,23 +15,21 @@ return true.
 public class MeetingRoom {
 
     public static void main(final String[] s) {
-        final Interval[] intervals = {new Interval(7, 10), new Interval(2, 5), new Interval(3, 6)};
-        System.out.println(canAttendMeetings(intervals));
+        //final int[][] interval = {{0, 30}, {5, 10}, {15, 20}};
+        final int[][] interval = {{13, 15}, {1, 13}};
+        System.out.println(canAttendMeetings(interval));
     }
 
-    public static boolean canAttendMeetings(final Interval[] intervals) {
-        if (intervals.length == 0) {
-            return false;
-        }
-        if (intervals.length == 1) {
+    public static boolean canAttendMeetings(final int[][] intervals) {
+        if (intervals.length <= 1) {
             return true;
         }
-        Arrays.sort(intervals, (a, b) -> Integer.compare(a.start, b.start));
-        Interval current = intervals[0];
+        Arrays.sort(intervals, (a, b) -> (a[0] - b[0]));
+        int[] current = intervals[0];
         for (int i = 1; i < intervals.length; i++) {
-            final int currentEnd = current.end;
-            final Interval next = intervals[i];
-            if (currentEnd < next.start) {
+            final int currentEnd = current[1];
+            final int[] next = intervals[i];
+            if (currentEnd <= next[0]) {
                 current = next;
             } else {
                 return false;
