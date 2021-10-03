@@ -1,4 +1,4 @@
-package com.example.algorithm.grid;
+package com.example.algorithm.matrix;
 
 import java.util.LinkedList;
 import java.util.Queue;
