@@ -1,4 +1,4 @@
-package com.example.algorithm.interval;
+package com.example.algorithm.topologySort;
 
 public class Interval {
 

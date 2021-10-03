@@ -1,4 +1,4 @@
-package com.example.algorithm.interval;
+package com.example.algorithm.topologySort;
 
 import java.util.ArrayList;
 import java.util.Arrays;
