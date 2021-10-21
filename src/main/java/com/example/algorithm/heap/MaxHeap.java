@@ -1,5 +1,6 @@
 package com.example.algorithm.heap;
 
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.PriorityQueue;
 
@@ -7,12 +8,8 @@ public class MaxHeap {
 
     public static void main(final String[] s) {
         final PriorityQueue<Integer> pq = new PriorityQueue<>(Collections.reverseOrder());
-        pq.add(6);
-        pq.add(1);
-        pq.add(11);
-        pq.add(4);
-        pq.add(20);
-        System.out.println("Displaying elements in Min Heap");
+        pq.addAll(Arrays.asList(6, 1, 11, 4, 20));
+        System.out.println("Displaying elements in Max Heap");
         pq.forEach(System.out::println);
 
         System.out.println("--------------");
