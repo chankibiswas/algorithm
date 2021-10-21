@@ -54,7 +54,7 @@ public class LFUCache {
             frequencyMap.get(min).remove(evict);
             frequencyCounts.remove(evict);
         }
-        
+
         cache.put(key, value);
         frequencyCounts.put(key, 1);
         min = 1;
