@@ -11,40 +11,51 @@ structure and no other data structure like arrays, list, .. etc.
 public class MinStackWithExtraSpace {
 
     private final Stack<Integer> stack = new Stack<>();
-    private final Stack<Integer> secondaryStack = new Stack<>();
+    private final Stack<Integer> minStack = new Stack<>();
 
     public static void main(final String[] s) {
         final MinStackWithExtraSpace m = new MinStackWithExtraSpace();
-        m.push(10);
-        m.push(18);
-        m.push(21);
+        m.push(512);
+        m.push(-1024);
+        m.push(-1024);
+        m.push(512);
+        m.pop();
         System.out.println(m.getMin());
         m.pop();
-        System.out.println(m.peek());
-        m.push(2);
+        System.out.println(m.getMin());
+        m.pop();
         System.out.println(m.getMin());
     }
 
-    private int peek() {
-        return stack.peek();
+    public void push(final int val) {
+        if (minStack.isEmpty() || val <= minStack.peek()) {
+            minStack.push(val);
+        }
+        stack.push(val);
     }
 
-    private void pop() {
-        if (secondaryStack.peek() == stack.peek()) {
-            secondaryStack.pop();
+    public void pop() {
+        if (stack.isEmpty()) {
+            return;
+        }
+        if (stack.peek().equals(minStack.peek())) {
+            minStack.pop();
         }
         stack.pop();
     }
 
-    private int getMin() {
-        return secondaryStack.peek();
+    public int top() {
+        if (stack.isEmpty()) {
+            return 0;
+        }
+        return stack.peek();
     }
 
-    private void push(final int i) {
-        stack.push(i);
-        if (secondaryStack.isEmpty() || secondaryStack.peek() >= i) {
-            secondaryStack.push(i);
+    public int getMin() {
+        if (minStack.isEmpty()) {
+            return 0;
         }
+        return minStack.peek();
     }
 
 }
