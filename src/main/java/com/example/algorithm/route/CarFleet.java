@@ -1,6 +1,5 @@
 package com.example.algorithm.route;
 
-import com.example.algorithm.Test1;
 import java.util.Arrays;
 import java.util.Stack;
 
@@ -38,7 +37,7 @@ public class CarFleet {
         final int target = 12;
         final int[] position = {10, 8, 0, 5, 3};
         final int[] speed = {2, 4, 1, 1, 3};
-        System.out.println(new Test1().carFleet(target, position, speed));
+        System.out.println(new CarFleet().carFleet(target, position, speed));
     }
 
     public int carFleet(final int target, final int[] position, final int[] speed) {
